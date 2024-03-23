@@ -1,4 +1,9 @@
+import { useNavigate } from "react-router-dom"
+
 const LandingPage = () => {
+
+  const navigate = useNavigate()
+
   return (
     <div className="flex flex-col min-h-[100dvh]">
       <header className="px-4 lg:px-6 h-14 flex items-center">
@@ -33,7 +38,7 @@ const LandingPage = () => {
             <div className="mx-auto w-full max-w-sm space-y-2">
               <a
                 className="inline-flex w-full items-center justify-center rounded-md border border-gray-200 border-gray-200 bg-white shadow-sm px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300"
-                href="#"
+                onClick = {() => navigate('./student')}
               >
                 <ChromeIcon className="w-4 h-4 mr-2 rounded dark:invert" />
                 Login with Google
