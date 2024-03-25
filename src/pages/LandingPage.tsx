@@ -1,8 +1,15 @@
-import { useNavigate } from "react-router-dom"
+import { GoogleLogin } from "@react-oauth/google";
+import { useNavigate } from "react-router-dom";
 
 const LandingPage = () => {
+  const responseMessage = (response: any) => {
+    console.log(response);
+  };
+  const errorMessage = () => {
+    console.log("error");
+  };
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   return (
     <div className="flex flex-col min-h-[90dvh]">
@@ -17,6 +24,7 @@ const LandingPage = () => {
               </p>
             </div>
             <div className="mx-auto w-full max-w-sm space-y-2">
+              {/* <GoogleLogin onSuccess={responseMessage} onError={errorMessage} /> */}
               <a
                 className="inline-flex w-full items-center justify-center rounded-md border border-gray-200 border-gray-200 bg-white shadow-sm px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300"
                 onClick={() => navigate('./student')}
@@ -69,9 +77,11 @@ const LandingPage = () => {
             </div> 
         </section> */}
 
-      </main>
+      </main >
       <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
-        <p className="text-xs text-gray-500 dark:text-gray-400">© 2024 Acme Inc. All rights reserved.</p>
+        <p className="text-xs text-gray-500 dark:text-gray-400">
+          © 2024 Acme Inc. All rights reserved.
+        </p>
         <nav className="sm:ml-auto flex gap-4 sm:gap-6">
           <a className="text-xs hover:underline underline-offset-4" href="#">
             Terms of Service
@@ -81,10 +91,9 @@ const LandingPage = () => {
           </a>
         </nav>
       </footer>
-    </div>
-  )
-}
-
+    </div >
+  );
+};
 
 function ChromeIcon(props: any) {
   return (
@@ -98,17 +107,15 @@ function ChromeIcon(props: any) {
       stroke="currentColor"
       strokeWidth="2"
       strokeLinecap="round"
-      strokeLinejoin="round"
-    >
+      strokeLinejoin="round">
       <circle cx="12" cy="12" r="10" />
       <circle cx="12" cy="12" r="4" />
       <line x1="21.17" x2="12" y1="8" y2="8" />
       <line x1="3.95" x2="8.54" y1="6.06" y2="14" />
       <line x1="10.88" x2="15.46" y1="21.94" y2="14" />
     </svg>
-  )
+  );
 }
-
 
 function MountainIcon(props: any) {
   return (
@@ -122,11 +129,10 @@ function MountainIcon(props: any) {
       stroke="currentColor"
       strokeWidth="2"
       strokeLinecap="round"
-      strokeLinejoin="round"
-    >
+      strokeLinejoin="round">
       <path d="m8 3 4 8 5-5 5 15H2L8 3z" />
     </svg>
-  )
+  );
 }
 
-export default LandingPage
+export default LandingPage;
