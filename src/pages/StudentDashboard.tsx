@@ -97,7 +97,7 @@ export default function Component() {
           <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
             <CardTitle className="text-sm font-medium">Grades</CardTitle>
             <Link to="./grades " className="flex flex-col gap-1">
-              Veiw All
+              View All
             </Link>
           </CardHeader>
           <CardContent>
@@ -126,7 +126,7 @@ export default function Component() {
         <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
           <CardTitle className="text-sm font-medium">Attendance</CardTitle>
           <Link to="./attendance" className="flex flex-col gap-1">
-            Veiw All
+            View All
           </Link>
         </CardHeader>
         <CardContent>
