@@ -7,7 +7,7 @@ import { Textarea } from "../components/ui/textarea"
 
 export default function Component() {
     return (
-        <Card className="w-full max-w-3xl dark">
+        <Card className="w-full max-w-3xl dark mx-auto">
             <CardHeader>
                 <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-4">
                     <div className="space-y-1">

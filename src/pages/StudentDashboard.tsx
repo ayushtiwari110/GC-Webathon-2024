@@ -2,32 +2,33 @@ import { AvatarImage, AvatarFallback, Avatar } from "../components/ui/avatar"
 import { TableHead, TableRow, TableHeader, TableCell, TableBody, Table } from "../components/ui/table"
 import { CardContent, Card, CardTitle, CardHeader } from "../components/ui/card"
 import { Separator } from "../components/ui/separator"
+import { Link } from 'react-router-dom'
 
 export default function Component() {
   return (
     <div className="grid md:grid-cols-3 gap-4 items-start w-full max-w-6xl px-2 py-3 mx-auto md:px-6 lg:py-12">
       <div className="flex flex-col gap-4 md:col-span-2 md:grid md:grid-cols-2 md:gap-4">
         <div className="flex flex-col gap-1">
-          <div className="flex items-center gap-2">
+          <Link to="./profile" className="flex items-center gap-2">
             <Avatar className="h-10 w-10 border-black dark:border-white border-2">
               <AvatarImage alt="Emma" src="/placeholder-avatar.jpg" />
               <AvatarFallback>EM</AvatarFallback>
             </Avatar>
             <h1 className="text-3xl font-bold">Hi, Emma!</h1>
-          </div>
+          </Link>
           <p className="text-gray-500 dark:text-gray-400">Here's what's happening with your courses and schedule.</p>
         </div>
-        <div className="flex flex-col gap-1">
+        <Link to="./course" className="flex flex-col gap-1">
           <h2 className="text-2xl font-bold">Fall 2023</h2>
           <p className="text-gray-500 dark:text-gray-400">You are currently registered for 4 courses.</p>
-        </div>
+        </Link>
         <Card className="md:col-span-2">
           <CardContent className="p-0">
             <div className="overflow-x-auto">
               <Table className="min-w-full">
                 <TableHeader>
                   <TableRow>
-                    <TableHead>Course</TableHead>
+                    <TableHead>   Course</TableHead>
                     <TableHead>Professor</TableHead>
                     <TableHead>Time</TableHead>
                     <TableHead>Location</TableHead>
@@ -69,9 +70,10 @@ export default function Component() {
             <a className="text-sm font-medium underline" href="#">
               View All
             </a>
+
           </CardHeader>
           <CardContent>
-            <ul className="grid gap-2 text-sm">
+            <ul className="grid gap-1 text-sm">
               <li>
                 <span className="font-semibold">Biology 101:</span>
                 Chapter 3 Quiz - Due 25th March
@@ -94,9 +96,9 @@ export default function Component() {
         <Card>
           <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
             <CardTitle className="text-sm font-medium">Grades</CardTitle>
-            <a className="text-sm font-medium underline" href="#">
-              View All
-            </a>
+            <Link to="./grades " className="flex flex-col gap-1">
+              Veiw All
+            </Link>
           </CardHeader>
           <CardContent>
             <ul className="grid gap-2 text-sm">
@@ -123,9 +125,9 @@ export default function Component() {
       <Card className="md:col-start-3">
         <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
           <CardTitle className="text-sm font-medium">Attendance</CardTitle>
-          <a className="text-sm font-medium underline" href="#">
-            View All
-          </a>
+          <Link to="./attendance" className="flex flex-col gap-1">
+            Veiw All
+          </Link>
         </CardHeader>
         <CardContent>
           <div className="flex items-center gap-4">
@@ -185,42 +187,44 @@ export default function Component() {
           </div>
         </CardContent>
       </Card>
+
       <Card>
-          <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
-            <CardTitle className="text-sm font-medium">Feedback</CardTitle>
-            <a className="text-sm font-medium underline" href="#">
-              Give Feedback
-            </a>
-          </CardHeader>
-          <CardContent>
-            <form className="grid gap-4">
-              <div className="mb-4">
-                <label htmlFor="category" className="block text-sm font-medium text-gray-300 mb-1">Select Category</label>
-                <select id="category" className="w-full px-3 py-2 rounded-md bg-slate-700 text-white">
-                  <option value="">Choose a category</option>
-                  <option value="courses">Courses</option>
-                  <option value="professor">Professor</option>
-                  <option value="facilities">Facilities</option>
-                  <option value="campus-events">Campus Events</option>
-                </select>
-              </div>
-              <div className="mb-4">
-                <label htmlFor="topic" className="block text-sm font-medium text-gray-300 mb-1">Subject</label>
-                <input type="text" id="topic" className="w-full px-3 py-2 rounded-md bg-gray-800 text-white" placeholder="Subject/Topic of Feedback"/>
-              </div>
-              <div className="mb-4">
-                <label htmlFor="feedback" className="block text-sm font-medium text-gray-300 mb-1">Share your feedback</label>
-                <textarea id="feedback" rows={4} className="w-full px-3 py-2 rounded-md bg-slate-700 text-white" placeholder="Type your feedback..."></textarea>
-              </div>
-              <button className="w-full py-2 px-4 bg-black dark:bg-white hover:bg-blue-700 rounded-md text-white dark:text-black font-medium">Submit</button>
-            </form>
-          </CardContent>
-        </Card>
+        <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
+          <CardTitle className="text-sm font-medium">Feedback</CardTitle>
+          <a className="text-sm font-medium underline" href="#">
+            Give Feedback
+          </a>
+        </CardHeader>
+
+        <CardContent>
+          <form className="grid gap-4">
+            <div className="mb-4">
+              <label htmlFor="category" className="block text-sm font-medium text-gray-300 mb-1">Select Category</label>
+              <select id="category" className="w-full px-3 py-2 rounded-md bg-slate-700 text-white">
+                <option value="">Choose a category</option>
+                <option value="courses">Courses</option>
+                <option value="professor">Professor</option>
+                <option value="facilities">Facilities</option>
+                <option value="campus-events">Campus Events</option>
+              </select>
+            </div>
+            <div className="mb-4">
+              <label htmlFor="topic" className="block text-sm font-medium text-gray-300 mb-1">Subject</label>
+              <input type="text" id="topic" className="w-full px-3 py-2 rounded-md bg-gray-800 text-white" placeholder="Subject/Topic of Feedback" />
+            </div>
+            <div className="mb-4">
+              <label htmlFor="feedback" className="block text-sm font-medium text-gray-300 mb-1">Share your feedback</label>
+              <textarea id="feedback" rows={4} className="w-full px-3 py-2 rounded-md bg-slate-700 text-white" placeholder="Type your feedback..."></textarea>
+            </div>
+            <button className="w-full py-2 px-4 bg-black dark:bg-white hover:bg-blue-700 rounded-md text-white dark:text-black font-medium">Submit</button>
+          </form>
+        </CardContent>
+      </Card>
     </div>
   )
 }
 
-function CalendarCheckIcon(props:any) {
+function CalendarCheckIcon(props: any) {
   return (
     <svg
       {...props}

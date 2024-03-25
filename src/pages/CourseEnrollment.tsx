@@ -9,25 +9,43 @@ import { Select } from "../components/ui/select"
 import { CardHeader, CardContent, Card } from "../components/ui/card"
 import { Button } from "../components/ui/button"
 import { Badge } from "../components/ui/badge"
+import React, { useState } from 'react'
 
 export default function Component() {
+    const [selectedTerm, setSelectedTerm] = useState('Spring 2023');
+    const [showDropdown, setShowDropdown] = useState(false);
+    const terms = ['Fall 2023  ', 'Spring 2024  ', 'Summer 2024     '];
     return (
         <div className="grid max-w-6xl gap-6 px-4 mx-auto lg:grid-cols-3 lg:px-6 xl:gap-10 dark">
             <div className="space-y-6 lg:col-span-2">
                 <div>
                     <h1 className="text-3xl font-bold">Course Registration</h1>
-                    <div className="flex items-center gap-2 text-sm">
+                    <div className="flex items-center gap-2 text-sm relative">
                         <span className="font-semibold">Term:</span>
-                        <div>
-                            <div className="text-primary-500 hover:underline">
-                                Spring 2023
-                                <div className="w-4 h-4 inline" />
+                        <div className="relative inline-block">
+                            <div
+                                className="text-primary-500 hover:underline cursor-pointer"
+                                onClick={() => setShowDropdown(!showDropdown)}
+                            >
+                                {selectedTerm}
+                                <div className={`pl-2 w-4 h-4 inline transform ${showDropdown ? 'rotate-180' : 'rotate-0'}`}>&#9660;</div>
                             </div>
-                            <div className="z-10 p-2 bg-white border shadow-lg w-48 origin-top-right rounded-md focus:outline-none dark:bg-gray-900">
-                                <div>Fall 2023</div>
-                                <div>Spring 2024</div>
-                                <div>Summer 2024</div>
-                            </div>
+                            {showDropdown && (
+                                <div className="absolute z-10 p-2 mt-1 bg-white border shadow-lg w-48 origin-top-right rounded-md focus:outline-none dark:bg-gray-900">
+                                    {terms.map((term) => (
+                                        <div
+                                            key={term}
+                                            className="hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer px-3 py-1"
+                                            onClick={() => {
+                                                setSelectedTerm(term);
+                                                setShowDropdown(false);
+                                            }}
+                                        >
+                                            {term}
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>
